@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgbffex3ibgom"]
+
+[ext_resource type="PackedScene" uid="uid://grivar2ls33w" path="res://scenes/mainCharacter.tscn" id="1_spauk"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1172.0
+offset_bottom = 677.0
+color = Color(0.418263, 0.88376, 0.789175, 1)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_spauk")]
+position = Vector2(597, 302)
+scale = Vector2(2, 2)

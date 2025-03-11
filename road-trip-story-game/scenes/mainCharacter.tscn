@@ -1,0 +1,110 @@
+[gd_scene load_steps=14 format=3 uid="uid://grivar2ls33w"]
+
+[ext_resource type="Texture2D" uid="uid://b7x8irrmwfc64" path="res://art/main character/standing.png" id="1_w33b4"]
+[ext_resource type="Script" path="res://scripts/main_character.gd" id="1_wi5av"]
+[ext_resource type="Texture2D" uid="uid://cfw56kp551qpc" path="res://art/main character/back.png" id="2_j7b1r"]
+[ext_resource type="Texture2D" uid="uid://d267exvkrbvdw" path="res://art/main character/frontwalk1.png" id="2_koxie"]
+[ext_resource type="Texture2D" uid="uid://cojwjidr04r2c" path="res://art/main character/backwalk1.png" id="3_rolu6"]
+[ext_resource type="Texture2D" uid="uid://bsprrox7nc0ee" path="res://art/main character/backwalk2.png" id="4_2l3ku"]
+[ext_resource type="Texture2D" uid="uid://dxfwqp2ofacp2" path="res://art/main character/frontwalk2.png" id="4_vahdk"]
+[ext_resource type="Texture2D" uid="uid://bjt6e3x676rk0" path="res://art/main character/sideview.png" id="8_k5wa1"]
+[ext_resource type="Texture2D" uid="uid://bjdwdnou42rry" path="res://art/main character/sidewalk1.png" id="9_sjiby"]
+[ext_resource type="Texture2D" uid="uid://b1dm1fsae2dhc" path="res://art/main character/sidewalk2.png" id="10_bsipl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c85jy"]
+load_path = "res://.godot/imported/sideview.png-2d100ebbfc781690c792c074f7a6fdf4.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkhil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j7b1r")
+}],
+"loop": true,
+"name": &"backStand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j7b1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rolu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j7b1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2l3ku")
+}],
+"loop": true,
+"name": &"backWalk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w33b4")
+}],
+"loop": true,
+"name": &"frontStand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w33b4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_koxie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_w33b4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vahdk")
+}],
+"loop": true,
+"name": &"frontWalk",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_c85jy")
+}],
+"loop": true,
+"name": &"sideStand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_k5wa1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sjiby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k5wa1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bsipl")
+}],
+"loop": true,
+"name": &"sideWalk",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sx85i"]
+radius = 14.0
+height = 44.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_wi5av")
+
+[node name="Animation2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dkhil")
+animation = &"sideWalk"
+frame_progress = 0.76836
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, -2)
+shape = SubResource("CapsuleShape2D_sx85i")
