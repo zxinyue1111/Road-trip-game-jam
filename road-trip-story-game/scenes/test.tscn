@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgbffex3ibgom"]
+[gd_scene load_steps=3 format=3 uid="uid://dgbffex3ibgom"]
 
 [ext_resource type="PackedScene" uid="uid://grivar2ls33w" path="res://scenes/mainCharacter.tscn" id="1_spauk"]
+[ext_resource type="PackedScene" uid="uid://ccrobkjma081f" path="res://scenes/dialogue.tscn" id="2_km344"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -10,5 +11,11 @@ offset_bottom = 677.0
 color = Color(0.418263, 0.88376, 0.789175, 1)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_spauk")]
-position = Vector2(597, 302)
+position = Vector2(598, 259)
 scale = Vector2(2, 2)
+
+[node name="Control" parent="." instance=ExtResource("2_km344")]
+offset_left = 5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = -5.0
